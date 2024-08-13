@@ -1,0 +1,21 @@
+// App Ideas
+
+Main features
+
+- Retrieve user's location
+- Ask user for restaurant preferences
+    - Cuisine
+    - Map radius (distance or time to restaurant)
+    - Type of restaurant (sit down, fast food)
+    - Price approximation ($, $$, $$$)
+    - Currently open?
+    - Average Rating / Review stars
+    - Delivery or Pick Up
+
+- Use google maps API to return list of restaurants
+- Use roulette style wheel to "randomly" choose a restaurant
+
+- User accounts
+- Save restaurant preferences
+- Save previous rolls
+- Allow users to review / rate restaurants (integrate with google reviews?)
