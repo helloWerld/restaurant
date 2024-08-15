@@ -4,18 +4,46 @@ Main features
 
 - Retrieve user's location
 - Ask user for restaurant preferences
-    - Cuisine
+    - Cuisine 
     - Map radius (distance or time to restaurant)
     - Type of restaurant (sit down, fast food)
     - Price approximation ($, $$, $$$)
     - Currently open?
-    - Average Rating / Review stars
+    - Average Rating / Review stars / Number of Reviews
     - Delivery or Pick Up
+    - Dietary Restrictions (Allergies)
+    - Live Music
+    - Good for Children (Family / Pet Friendly)
+    - Outdoor Seating
+    - Parking Options
+    - Payment Options
+    - Sort by Meal / Alcohol / Cofee
+    - Wifi Available
+    - EV Charge Options
 
 - Use google maps API to return list of restaurants
 - Use roulette style wheel to "randomly" choose a restaurant
 
+
+Additional features
+
 - User accounts
-- Save restaurant preferences
+- Save restaurant preferences / update prefences / custom names
 - Save previous rolls
 - Allow users to review / rate restaurants (integrate with google reviews?)
+- Get driving directions
+
+
+
+Basic Filters Component
+Advanced Filters Component
+
+Results list
+
+User Profile Dashboard
+    - Basic User Info (name, email, etc)
+    - Saved Preferences (Manage /  Update)
+    - Previous
+
+
+
