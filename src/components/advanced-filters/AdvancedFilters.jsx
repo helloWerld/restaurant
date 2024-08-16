@@ -14,13 +14,13 @@ import wifiIcon from "../../../public/wifi-icon.png";
 const infoAdvancedFilters = [
   {
     id: 1,
-    icon: dietaryRestrictions,
-    description: "Dietary restrictions and food allergies",
+    icon: servesAlcohol,
+    description: "Serves alcohol",
   },
   {
     id: 2,
-    icon: servesAlcohol,
-    description: "Serves alcohol",
+    icon: dietaryRestrictions,
+    description: "Dietary & allergy restrictions",
   },
   {
     id: 3,
@@ -39,37 +39,52 @@ const infoAdvancedFilters = [
   },
   {
     id: 6,
-    icon: dietaryRestrictions,
-    description: "Dietary restrictions and food allergies",
-  },
-  {
-    id: 7,
     icon: petFriendly,
     description: "Pet friendly",
   },
   {
-    id: 8,
+    id: 7,
     icon: familyFriendly,
     description: "Family friendly",
   },
   {
-    id: 9,
+    id: 8,
     icon: parking,
     description: "Parking",
   },
   {
-    id: 10,
+    id: 9,
     icon: payments,
     description: "Payment options",
   },
   {
-    id: 11,
+    id: 10,
     icon: coffee,
     description: "Serves coffee",
   },
   {
-    id: 12,
+    id: 11,
     icon: wifiIcon,
     description: "Wifi access",
   },
 ];
+
+const AdvancedFilters = () => {
+  return (
+    <div className="flex flex-row items-center justify-around px-6">
+      {infoAdvancedFilters.map((filter) => (
+        <div key={filter.id} className="tooltip" data-tip={filter.description}>
+          <button className="btn btn-circle btn-ghost">
+            <img
+              className="h-6 w-6"
+              src={filter.icon.src}
+              alt={filter.description}
+            />
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default AdvancedFilters;
