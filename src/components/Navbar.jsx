@@ -9,7 +9,7 @@ const Navbar = () => {
 				<img src={logo.src} className="w-10 h-10" /> Yum Finder
 			</div>
 			<div className="flex-none gap-2">
-				<div className="form-control">
+				<div className="hidden md:form-control">
 					<input
 						type="text"
 						placeholder="Search for a Restaurant"
@@ -33,6 +33,13 @@ const Navbar = () => {
 						tabIndex={0}
 						className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
 					>
+						<div className="form-control md:hidden mb-4">
+							<input
+								type="text"
+								placeholder="Search"
+								className="input input-bordered w-48"
+							/>
+						</div>
 						<li>
 							<Link href="/dashboard" className="justify-between">
 								Profile
