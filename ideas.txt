@@ -1,6 +1,6 @@
 // App Ideas
 
-Main features
+// Main features
 
 - Retrieve user's location
 - Ask user for restaurant preferences
@@ -25,7 +25,7 @@ Main features
 - Use roulette style wheel to "randomly" choose a restaurant
 
 
-Additional features
+// Additional features
 
 - User accounts
 - Save restaurant preferences / update prefences / custom names
@@ -34,16 +34,46 @@ Additional features
 - Get driving directions
 
 
+//COMPONENTS
 
-Basic Filters Component
-Advanced Filters Component
+[RANDALL T] User Location Request Component
+    - Automatic Request
+    - Manual (Enter a Zip Code , Full Address)
 
-Results list
+[MARY] Basic Filters Component (search filters)
+    - Cuisine
+    - Type of restaurant (pick up / delivery / fast food / sit down)
+    - Price approximation
+    - Currently Open? Closing Soon?
+    - Average Rating
 
-User Profile Dashboard
+[DANNY] Advanced Filters Component (search filters)
+    - Dietary Restrictions (Allergies)
+    - Live Music
+    - Good for Children (Family / Pet Friendly)
+    - Outdoor Seating
+    - Parking Options
+    - Payment Options
+    - Sort by Meal / Alcohol / Coffee
+    - Wifi Available
+    - EV Charge Options
+
+[RANDALL LAPOINT] Results list (list of businesses)
+
+[ERIC] Rate a Restaurant Component
+
+[CHRIS] Driving Directions Component
+[CHRIS] Map Component (Business Data)
+
+[BRICE] Roulette wheel
+
+[RUSSELL] User Profile Dashboard
     - Basic User Info (name, email, etc)
     - Saved Preferences (Manage /  Update)
-    - Previous
+    - Previous Searches
+    - 
+
+Order Food (Grubhub, DoorDash)
 
 
 
