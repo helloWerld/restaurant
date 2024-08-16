@@ -48,7 +48,7 @@
     - Average Rating
 
 [DANNY] Advanced Filters Component (search filters) - My branch: feature/advanced-filters 
-    - Dietary Restrictions (Allergies)
+    - Dietary Restrictions (Allergies) [Are we breaking this down into sub-categories? E.g., specific allergies or ingredient restrictions?]
     - Live Music
     - Good for Children (Family / Pet Friendly)
     - Outdoor Seating
