@@ -47,7 +47,7 @@
     - Currently Open? Closing Soon?
     - Average Rating
 
-[DANNY] Advanced Filters Component (search filters)
+[DANNY] Advanced Filters Component (search filters) - My branch: feature/advanced-filters 
     - Dietary Restrictions (Allergies)
     - Live Music
     - Good for Children (Family / Pet Friendly)
