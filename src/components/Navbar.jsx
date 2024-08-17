@@ -5,9 +5,9 @@ import Link from 'next/link';
 const Navbar = () => {
 	return (
 		<div className="navbar bg-primary px-4">
-			<div className="flex-1">
+			<Link href="/" className="flex-1">
 				<img src={logo.src} className="w-10 h-10" /> Yum Finder
-			</div>
+			</Link>
 			<div className="flex-none gap-2">
 				<div className="hidden md:form-control">
 					<input
