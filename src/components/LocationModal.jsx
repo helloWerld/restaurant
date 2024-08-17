@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const LocationModal = () => {
@@ -8,11 +9,12 @@ const LocationModal = () => {
         className="btn"
         onClick={() => document.getElementById("my_modal_1").showModal()}
       >
-        open modal
+        update location
       </button>
+
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
+          <h3 className="font-bold text-lg">Update My Location</h3>
           <p className="py-4">
             Press ESC key or click the button below to close
           </p>
