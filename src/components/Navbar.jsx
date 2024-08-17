@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Navbar = () => {
 	return (
 		<div className="navbar bg-primary px-4">
-			<Link href="/" className="flex-1">
+			<Link href="/" className="flex-1 text-primary-content">
 				<img src={logo.src} className="w-10 h-10" /> Yum Finder
 			</Link>
 			<div className="flex-none gap-2">
@@ -40,6 +40,12 @@ const Navbar = () => {
 								className="input input-bordered w-48"
 							/>
 						</div>
+						<input
+							type="checkbox"
+							value="synthwave"
+							className="toggle theme-controller"
+						/>
+
 						<li>
 							<Link href="/dashboard" className="justify-between">
 								Profile
