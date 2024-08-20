@@ -4,7 +4,9 @@ import React from "react";
 const rating = () => {
   return (
     <div>
-      <h1 className=" flex flex-col p-20 mx-10 ">Rate Restaurant</h1>
+      <div className=" flex flex-col p-10 mx-10 text-center font-bold">
+        Rate and Review Restaurant
+      </div>
       <Rating />
     </div>
   );
