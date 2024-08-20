@@ -1,0 +1,80 @@
+// App Ideas
+
+// Main features
+
+- Retrieve user's location
+- Ask user for restaurant preferences
+    - Cuisine 
+    - Map radius (distance or time to restaurant)
+    - Type of restaurant (sit down, fast food)
+    - Price approximation ($, $$, $$$)
+    - Currently open?
+    - Average Rating / Review stars / Number of Reviews
+    - Delivery or Pick Up
+    - Dietary Restrictions (Allergies)
+    - Live Music
+    - Good for Children (Family / Pet Friendly)
+    - Outdoor Seating
+    - Parking Options
+    - Payment Options
+    - Sort by Meal / Alcohol / Cofee
+    - Wifi Available
+    - EV Charge Options
+
+- Use google maps API to return list of restaurants
+- Use roulette style wheel to "randomly" choose a restaurant
+
+
+// Additional features
+
+- User accounts
+- Save restaurant preferences / update prefences / custom names
+- Save previous rolls
+- Allow users to review / rate restaurants (integrate with google reviews?)
+- Get driving directions
+
+
+//COMPONENTS
+
+[RANDALL T] User Location Request Component
+    - Automatic Request
+    - Manual (Enter a Zip Code , Full Address)
+
+[MARY] Basic Filters Component (search filters)
+    - Cuisine
+    - Type of restaurant (pick up / delivery / fast food / sit down)
+    - Price approximation
+    - Currently Open? Closing Soon?
+    - Average Rating
+    Test
+
+[DANNY] Advanced Filters Component (search filters)
+    - Dietary Restrictions (Allergies)
+    - Live Music
+    - Good for Children (Family / Pet Friendly)
+    - Outdoor Seating
+    - Parking Options
+    - Payment Options
+    - Sort by Meal / Alcohol / Coffee
+    - Wifi Available
+    - EV Charge Options
+
+[RANDALL LAPOINT] Results list (list of businesses)
+
+[ERIC] Rate a Restaurant Component
+
+[CHRIS] Driving Directions Component
+[CHRIS] Map Component (Business Data)
+
+[BRICE] Roulette wheel
+
+[RUSSELL] User Profile Dashboard
+    - Basic User Info (name, email, etc)
+    - Saved Preferences (Manage /  Update)
+    - Previous Searches
+    - 
+
+[ANTHONY] Order Food (Grubhub, DoorDash)
+
+
+
