@@ -12,6 +12,8 @@ const restaurantData = {
       cuisine: "French",
       rating: 4.8,
       priceRange: "$$$$",
+      imageUrl: "https://images.unsplash.com/photo-1555992336-03a23f34ebc1",
+      website: "https://www.gourmetbistro.com",
     },
     {
       id: 2,
@@ -25,6 +27,8 @@ const restaurantData = {
       cuisine: "Italian",
       rating: 4.3,
       priceRange: "$$",
+      imageUrl: "https://images.unsplash.com/photo-1585238341863-1d1a5f980308",
+      website: "https://www.mamamiaspizzeria.com",
     },
     {
       id: 3,
@@ -38,6 +42,8 @@ const restaurantData = {
       cuisine: "Japanese",
       rating: 4.6,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1562967916-eb82221dfb53",
+      website: "https://www.sushihaven.com",
     },
     {
       id: 4,
@@ -51,6 +57,8 @@ const restaurantData = {
       cuisine: "American",
       rating: 4.2,
       priceRange: "$$",
+      imageUrl: "",
+      website: "https://www.burgertown.com",
     },
     {
       id: 5,
@@ -64,6 +72,8 @@ const restaurantData = {
       cuisine: "Indian",
       rating: 4.5,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1592194996308-7d4a2bb69130",
+      website: "https://www.spiceroute.com",
     },
     {
       id: 6,
@@ -77,6 +87,8 @@ const restaurantData = {
       cuisine: "Mexican",
       rating: 4.1,
       priceRange: "$",
+      imageUrl: "",
+      website: "https://www.tacofiesta.com",
     },
     {
       id: 7,
@@ -90,6 +102,8 @@ const restaurantData = {
       cuisine: "Vegetarian",
       rating: 4.7,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1600203780319-26a4ce1f64d9",
+      website: "https://www.greengarden.com",
     },
     {
       id: 8,
@@ -103,6 +117,8 @@ const restaurantData = {
       cuisine: "BBQ",
       rating: 4.4,
       priceRange: "$$",
+      imageUrl: "https://images.unsplash.com/photo-1592928300483-11b64437579d",
+      website: "https://www.bbqnation.com",
     },
     {
       id: 9,
@@ -116,6 +132,8 @@ const restaurantData = {
       cuisine: "Seafood",
       rating: 4.3,
       priceRange: "$$$",
+      imageUrl: "",
+      website: "https://www.seafoodshack.com",
     },
     {
       id: 10,
@@ -129,6 +147,8 @@ const restaurantData = {
       cuisine: "Italian",
       rating: 4.5,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1601924549205-0d6b14d4d3b2",
+      website: "https://www.pastapalace.com",
     },
     {
       id: 11,
@@ -142,6 +162,8 @@ const restaurantData = {
       cuisine: "Indian",
       rating: 4.6,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1568302229440-469dd2d78b76",
+      website: "https://www.currycorner.com",
     },
     {
       id: 12,
@@ -155,6 +177,8 @@ const restaurantData = {
       cuisine: "Creole",
       rating: 4.7,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1622819947306-8408fc8a1b0b",
+      website: "https://www.creolekitchen.com",
     },
     {
       id: 13,
@@ -168,6 +192,8 @@ const restaurantData = {
       cuisine: "Vietnamese",
       rating: 4.4,
       priceRange: "$$",
+      imageUrl: "https://images.unsplash.com/photo-1597473048861-bc68a55202dd",
+      website: "https://www.phoparadise.com",
     },
     {
       id: 14,
@@ -181,6 +207,8 @@ const restaurantData = {
       cuisine: "Chinese",
       rating: 4.2,
       priceRange: "$$",
+      imageUrl: "https://images.unsplash.com/photo-1608215683116-2d3a4ec546d9",
+      website: "https://www.dragonhouse.com",
     },
     {
       id: 15,
@@ -194,6 +222,8 @@ const restaurantData = {
       cuisine: "Steakhouse",
       rating: 4.8,
       priceRange: "$$$$",
+      imageUrl: "https://images.unsplash.com/photo-1593759608988-6b499e4c1b1f",
+      website: "https://www.steakhousegrill.com",
     },
     {
       id: 16,
@@ -207,6 +237,8 @@ const restaurantData = {
       cuisine: "Mediterranean",
       rating: 4.5,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1586880244404-b7b85061d54f",
+      website: "https://www.mediterraneandelight.com",
     },
     {
       id: 17,
@@ -220,6 +252,8 @@ const restaurantData = {
       cuisine: "American",
       rating: 4.1,
       priceRange: "$",
+      imageUrl: "https://images.unsplash.com/photo-1606755962779-99e3c5f384b7",
+      website: "https://www.burgerjoint.com",
     },
     {
       id: 18,
@@ -233,6 +267,8 @@ const restaurantData = {
       cuisine: "Indian",
       rating: 4.3,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1622921358045-71e05b64ea3c",
+      website: "https://www.tandoorigrill.com",
     },
     {
       id: 19,
@@ -246,6 +282,8 @@ const restaurantData = {
       cuisine: "Japanese",
       rating: 4.6,
       priceRange: "$$$",
+      imageUrl: "https://images.unsplash.com/photo-1602980234431-9b2c8aa80527",
+      website: "https://www.sushiexpress.com",
     },
     {
       id: 20,
@@ -259,6 +297,8 @@ const restaurantData = {
       cuisine: "French",
       rating: 4.7,
       priceRange: "$$$$",
+      imageUrl: "https://images.unsplash.com/photo-1609990131926-753ef3780ab7",
+      website: "https://www.bistroonthebay.com",
     },
   ],
 };
