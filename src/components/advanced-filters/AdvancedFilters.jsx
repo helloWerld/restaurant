@@ -10,6 +10,9 @@ import parking from "../../../public/parking-icon.png";
 import payments from "../../../public/payment-icon.png";
 import coffee from "../../../public/coffee-icon.png";
 import wifiIcon from "../../../public/wifi-icon.png";
+import cardPayment from "../../../public/card-payment-icon.png";
+import cashPayment from "../../../public/cash-payment-icon.png";
+import mobilePayment from "../../../public/other-payment-icon.png";
 
 const infoAdvancedFilters = [
   {
@@ -54,18 +57,22 @@ const infoAdvancedFilters = [
   },
   {
     id: 9,
-    icon: payments,
-    description: "Payment options",
-  },
-  {
-    id: 10,
     icon: coffee,
     description: "Serves coffee",
   },
   {
-    id: 11,
+    id: 10,
     icon: wifiIcon,
     description: "Wifi access",
+  },
+];
+
+const filtersWithOptions = [
+  {
+    id: 1,
+    icon: payments,
+    description: "Payment options",
+    hasOptions: ["card", "cash", "Venmo"],
   },
 ];
 
@@ -83,6 +90,33 @@ const AdvancedFilters = () => {
           </button>
         </div>
       ))}
+      {filtersWithOptions.map((filter) => {
+        <div key={filter.id} className="tooltip" data-tip={filter.description}>
+          <div className="dropdown dropdown-hover">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-circle btn-ghost"
+            >
+              <img
+                className="h-6 w-6"
+                src={filter.icon.src}
+                alt={filter.description}
+              />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            >
+              {filter.hasOptions.map((option, index) => (
+                <li key={index}>
+                  <a>{option}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>;
+      })}
     </div>
   );
 };
