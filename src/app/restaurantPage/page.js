@@ -1,12 +1,12 @@
 import RestaurantList from "@/components/restaurantResults/RestaurantList";
 import React from "react";
 
-const Development = () => {
+const RestaurantPage = () => {
   return (
-    <div className="min-h-screen max-w-full">
+    <main className="min-h-screen max-w-screen p-4 overflow-x-clip">
       <RestaurantList />
-    </div>
+    </main>
   );
 };
 
-export default Development;
+export default RestaurantPage;
