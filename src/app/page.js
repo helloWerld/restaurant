@@ -1,11 +1,9 @@
 import Hero from "@/components/homepage/Hero";
-import AdvancedFilters from "@/components/advanced-filters/AdvancedFilters";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-between justify-center">
+    <main className="flex flex-col items-center justify-between">
       <Hero />
-      <AdvancedFilters />
     </main>
   );
 }
