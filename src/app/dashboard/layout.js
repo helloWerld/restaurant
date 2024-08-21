@@ -5,6 +5,7 @@ import {
 	FaSlidersH,
 	FaSearchLocation,
 	FaThumbsUp,
+	FaHistory,
 } from 'react-icons/fa';
 
 const NavLinks = [
@@ -19,8 +20,8 @@ const NavLinks = [
 		href: '/dashboard/preferences',
 	},
 	{
-		name: 'Search History',
-		icon: <FaSearchLocation />,
+		name: 'Spin History',
+		icon: <FaHistory />,
 		href: '/dashboard/history',
 	},
 	{ name: 'Reviews', icon: <FaThumbsUp />, href: '/dashboard/reviews' },

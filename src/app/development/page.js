@@ -1,12 +1,12 @@
 import React from 'react';
 import Roulette from '@/components/Roulette';
 
-const Development = () => {
+const page = () => {
 	return (
-		<div className="flex flex-col items-center justify-start min-h-screen p-24">
+		<div className="min-h-screen flex flex-col items-center justify-center p-6 overflow-x-clip">
 			<Roulette />
 		</div>
 	);
 };
 
-export default Development;
+export default page;

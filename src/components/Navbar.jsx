@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Navbar = () => {
 	return (
 		<div className="navbar bg-primary px-4">
-			<Link href="/" className="flex-1 text-primary-content">
+			<Link href="/" className="flex-1 text-primary-content  font-medium">
 				<img src={logo.src} className="w-10 h-10" /> Yum Finder
 			</Link>
 			<div className="flex-none gap-2">
@@ -16,7 +16,7 @@ const Navbar = () => {
 						className="input input-bordered w-80"
 					/>
 				</div>
-				<div className="dropdown dropdown-end">
+				<div className="dropdown dropdown-end z-[100]">
 					<div
 						tabIndex={0}
 						role="button"
@@ -31,7 +31,7 @@ const Navbar = () => {
 					</div>
 					<ul
 						tabIndex={0}
-						className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+						className="text-primary-content menu menu-sm dropdown-content bg-primary rounded-box z-[1] mt-3 w-52 p-2 shadow"
 					>
 						<div className="form-control md:hidden mb-4">
 							<input
@@ -43,13 +43,14 @@ const Navbar = () => {
 						<input
 							type="checkbox"
 							value="synthwave"
-							className="toggle theme-controller"
+							className="toggle theme-controller my-2 ms-auto "
 						/>
 
 						<li>
-							<Link href="/dashboard" className="justify-between">
-								Profile
-							</Link>
+							<Link href="/dashboard">Profile</Link>
+						</li>
+						<li>
+							<Link href="/development">Dev</Link>
 						</li>
 						<li>
 							<a>Settings</a>

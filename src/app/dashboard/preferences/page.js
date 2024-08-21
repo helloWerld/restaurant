@@ -16,18 +16,18 @@ const Preferences = () => {
 					onClick={() => setShowNewSearchPreference((prev) => !prev)}
 					className="btn btn-circle bg-primary hover:bg-secondary text-xl ms-4"
 				>
-					+
+					{showNewSearchPreference ? '-' : '+'}
 				</button>
 			</h1>
 			{showNewSearchPreference && <NewSearchPrefences />}
 			<div className="w-full xl:w-1/2 flex flex-col gap-6 my-8">
 				{preferences.map((preference) => (
-					<div className="group collapse bg-primary tracking-wide hover:shadow-lg transition duration-300">
+					<div className="group collapse bg-base-300 hover:bg-primary tracking-wide hover:shadow-lg transition duration-300">
 						<input type="checkbox" />
 						<div className="collapse-title text-xl font-medium flex flex-row items-center justify-between">
 							<p className="group-hover:font-semibold">{preference.name}</p>
 							<div className="flex flex-row gap-4 -mr-6">
-								<div className="btn btn-md btn-circle hover:bg-primary hover:border hover:border-primary-content/50  z-30 text-lg">
+								<div className="btn btn-md btn-circle hover:bg-info hover:border-info-content/10  z-30 text-lg">
 									<FaPencilAlt />
 								</div>
 								<div className="btn btn-sm btn-circle hover:bg-error hover:border-red-500 hover:text-white z-30 text-lg">
