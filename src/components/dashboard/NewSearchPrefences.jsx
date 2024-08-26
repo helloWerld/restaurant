@@ -1,5 +1,6 @@
 'use client';
 
+import { getLocation } from '@/functions';
 import React, { useState } from 'react';
 import { FaMapPin } from 'react-icons/fa';
 
@@ -9,33 +10,12 @@ const NewSearchPrefences = () => {
 		longitude: null,
 	});
 
-	const getUserLocation = () => {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(
-				(position) => {
-					setLocation({
-						latitude: position.coords.latitude,
-						longitude: position.coords.longitude,
-					});
-				},
-				(error) => {
-					setLocation({
-						latitude: null,
-						longitude: null,
-					});
-					alert(`ERROR: Could not retrieve location. ${error.message}`);
-				}
-			);
-		} else {
-			alert('Please enable geolocation for this feature.');
-		}
-	};
 	return (
 		<div className="flex flex-col w-full border bg-base-200 min-h-80 rounded-lg mb-8 mt-4 p-6">
 			<h2 className="text-lg font-semibold">+ Add New Search Preference</h2>
 			<div className="divider"></div>
 			<label className="text-sm">
-				{location.longitude != null
+				{location?.longitude != null
 					? `Latitude: ${location?.latitude}, Longitude: ${location?.longitude}`
 					: 'Manually Set Location'}
 			</label>
@@ -51,7 +31,12 @@ const NewSearchPrefences = () => {
 				<div className="divider md:divider-horizontal ms:ms-auto">OR</div>
 				<div className="flex w-full md:w-fit justify-center">
 					<button
-						onClick={getUserLocation}
+						onClick={async () => {
+							const newLocation = await getLocation();
+							console.log(newLocation);
+							setLocation(newLocation);
+							//setLocation(newLocation);
+						}}
 						className="btn btn-primary w-full flex-nowrap whitespace-nowrap"
 					>
 						<FaMapPin />

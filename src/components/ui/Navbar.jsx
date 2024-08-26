@@ -1,39 +1,21 @@
 'use client';
 
 import React from 'react';
-import logo from '../../public/icon.png';
+import logo from '../../../public/icon.png';
 import Link from 'next/link';
+import SearchForm from './SearchForm';
 
 const Navbar = () => {
-	const searchRestaurants = async (e) => {
-		e.preventDefault();
-		console.log('Searching...');
-		const responseData = await fetch('/api/places', {
-			// prettier-ignore
-			"textQuery": 'pizza shop in wellington fl',
-		});
-		//const data = await responseData.json();
-		console.log('response data', responseData.json());
-	};
 	return (
 		<div className="navbar bg-primary px-4">
 			<Link href="/" className="flex-1 text-primary-content  font-medium">
 				<img src={logo.src} className="w-10 h-10" /> Yum Finder
 			</Link>
 			<div className="flex-none gap-2">
-				<form
-					onSubmit={searchRestaurants}
-					className="md:flex flex-row join hidden"
-				>
-					<input
-						type="text"
-						placeholder="Search for a Restaurant"
-						className="join-item input input-bordered w-80"
-					/>
-					<button type="submit" className="btn btn-secondary join-item">
-						Search
-					</button>
-				</form>
+				<Link href="/spin" className="btn btn-outline">
+					Spin The Wheel!
+				</Link>
+				<SearchForm />
 				<div className="dropdown dropdown-end z-[100]">
 					<div
 						tabIndex={0}

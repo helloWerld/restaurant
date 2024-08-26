@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Wheel } from 'react-custom-roulette';
-import { default as icon } from '../../public/icon.png';
+import { default as icon } from '../../../public/icon.png';
 import { FaSlidersH } from 'react-icons/fa';
 import Confetti from 'react-confetti';
+import { placesNearbySearch } from '@/functions';
 
 const data = [
 	{ option: 'Starlight Bistro' },
@@ -20,18 +21,40 @@ const data = [
 
 const Roulette = ({ modal }) => {
 	const [mustSpin, setMustSpin] = useState(false);
+	const [showFilters, setShowFilters] = useState(false);
 	const [showConfetti, setShowConfetti] = useState(false);
 	const [prizeNumber, setPrizeNumber] = useState(0);
 	const [winner, setWinner] = useState(null);
+	const [windowSize, setWindowSize] = useState({
+		innerWidth: 0,
+		innerHeight: 0,
+	});
 	const audioRef = useRef();
 
-	const handleSpinClick = () => {
+	useEffect(() => {
+		setWindowSize({
+			innerWidth: window.innerWidth,
+			innerHeight: window.innerHeight,
+		});
+	}, []);
+
+	const handleSpinClick = async () => {
 		setPrizeNumber(null);
 		console.log('spin');
 		if (!mustSpin) {
+			// const response = await placesNearbySearch();
+			// let spinData = [];
+			// response.places.forEach((place) =>
+			// 	spinData.push({
+			// 		option: place.displayName.text,
+			// 	})
+			// );
+			// console.log(spinData);
+			// setData(spinData);
+
 			audioRef.current.pause();
 			audioRef.current.currentTime = 0;
-			const newPrizeNumber = Math.floor(Math.random() * data.length);
+			const newPrizeNumber = data ? Math.floor(Math.random() * data.length) : 0;
 			setPrizeNumber(newPrizeNumber);
 			setMustSpin(true);
 			audioRef.current.play();
@@ -45,9 +68,9 @@ const Roulette = ({ modal }) => {
 			</audio>
 			{!modal && showConfetti && (
 				<Confetti
-					confettiSource={{ x: 0, y: 0, w: window.innerWidth, h: 0 }}
-					width={window.width}
-					height={window.height}
+					confettiSource={{ x: 0, y: 0, w: windowSize.innerWidth, h: 0 }}
+					width={windowSize.width}
+					height={windowSize.height}
 					recycle={false}
 					numberOfPieces={1000}
 					onConfettiComplete={() => setShowConfetti(false)}
@@ -63,11 +86,15 @@ const Roulette = ({ modal }) => {
 							Start the wheel to select your next meal...
 						</h2>
 						<div className="flex flex-row gap-2 items-center mt-4 z-40">
-							<button onClick={handleSpinClick} className="btn btn-secondary">
+							<button
+								disabled={mustSpin}
+								onClick={() => handleSpinClick()}
+								className="btn btn-secondary"
+							>
 								Spin The Wheel
 							</button>
 							<button
-								onClick={() => alert('Add Filters')}
+								onClick={() => setShowFilters((prev) => !prev)}
 								className="btn btn-ghost"
 							>
 								<FaSlidersH /> Filters
@@ -93,7 +120,7 @@ const Roulette = ({ modal }) => {
 						</>
 					)}
 				</div>
-				<div className="flex items-center justify-center scale-95 lg:scale-125 w-fit drop-shadow-2xl rounded-full bg-primary ">
+				<div className="whitespace-normal flex items-center justify-center scale-95 lg:scale-125 w-fit drop-shadow-2xl rounded-full bg-primary ">
 					<Wheel
 						spinDuration={0.35}
 						mustStartSpinning={mustSpin}
@@ -101,7 +128,7 @@ const Roulette = ({ modal }) => {
 						data={data}
 						onStopSpinning={() => {
 							setMustSpin(false);
-							setWinner(data[prizeNumber].option);
+							setWinner(data[prizeNumber].option || 'Error');
 							setShowConfetti(true);
 						}}
 						backgroundColors={[
@@ -117,11 +144,13 @@ const Roulette = ({ modal }) => {
 						outerBorderWidth={20}
 						outerBorderColor={'#291334'}
 						radiusLineWidth={0.5}
-						fontSize={Math.floor(18 - data.length / 2)}
+						fontWeight={'normal'}
+						fontSize={data ? Math.floor(20 - data?.length / 1.3) : 0}
 						pointerProps={{
 							src: icon.src,
 							style: { rotate: '45deg', margin: '15px' },
 						}}
+						disableInitialAnimation={true}
 					/>
 				</div>
 			</div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Roulette from '../Roulette';
+import Roulette from '../spin/Roulette';
 import { FaTimes } from 'react-icons/fa';
 
 const RouletteModal = () => {

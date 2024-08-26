@@ -15,9 +15,7 @@ const Hero = () => {
 				</p>
 				<div className="flex flex-row gap-4">
 					<button className="btn btn-primary">Try it now!</button>
-					<button className="btn btn-primary btn-ghost">
-						Advanced Options
-					</button>
+					<button className="btn btn-primary btn-ghost">Select Filters</button>
 				</div>
 			</div>
 			<div className="w-full lg:w-1/2">
