@@ -53,7 +53,7 @@ const layout = ({ children }) => {
 					<ul className="menu bg-base-200 text-base-content min-h-full w-80 p-6 gap-2">
 						{/* Sidebar content here */}
 						{NavLinks.map((link) => (
-							<li className="flex flex-row gap-0">
+							<li key={link} className="flex flex-row gap-0">
 								<Link href={link.href}>
 									<span className="text-2xl p-2">{link.icon}</span>
 									{link.name}
