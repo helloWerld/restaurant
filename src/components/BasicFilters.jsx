@@ -38,10 +38,22 @@ const BasicFilters = () => {
         <option disabled selected value="">
           Select an average rating
         </option>
-        <option value="1Star">&#9733</option>
-        <option value="2Star">&#9733&#9733</option>
-        <option value="3Star">&#9733&#9733&#9733</option>
-        <option value="4Star">&#9733&#9733&#9733&#9733</option>
+        <option value="1Star">{String.fromCharCode(9733)}</option>
+        <option value="2Star">
+          {String.fromCharCode(9733)}
+          {String.fromCharCode(9733)}
+        </option>
+        <option value="3Star">
+          {String.fromCharCode(9733)}
+          {String.fromCharCode(9733)}
+          {String.fromCharCode(9733)}
+        </option>
+        <option value="4Star">
+          {String.fromCharCode(9733)}
+          {String.fromCharCode(9733)}
+          {String.fromCharCode(9733)}
+          {String.fromCharCode(9733)}
+        </option>
       </select>
       <select className="select select-bordered w-full max-w-xs" id="Timing">
         <option disabled selected value="">
