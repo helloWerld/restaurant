@@ -5,11 +5,11 @@ const Hero = () => {
 	return (
 		<div className="flex flex-col lg:flex-row items-center w-full">
 			<div className="flex flex-col items-start justify-center w-full lg:w-1/2 h-full px-12 py-12">
-				<h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+				<h1 className=" text-5xl lg:text-6xl font-bold leading-tight">
 					Spin the wheel,
 					<br /> Find a meal 🍔
 				</h1>
-				<p className="text-lg py-6 max-w-96">
+				<p className=" text-lg py-6 max-w-96">
 					Spin the wheel and let chance take you to your next delicious
 					destination.
 				</p>
