@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/page": "app/page.js",
+  "/details/[restaurantId]/page": "app/details/[restaurantId]/page.js",
+  "/spin/page": "app/spin/page.js",
+  "/auth/page": "app/auth/page.js",
+  "/search/page": "app/search/page.js",
+  "/icon.png/route": "app/icon.png/route.js"
+}

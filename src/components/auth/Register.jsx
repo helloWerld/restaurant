@@ -2,38 +2,69 @@
 
 import React, { useState } from 'react';
 import { auth } from '@/lib/firebase/firebase.config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { FaSpinner } from 'react-icons/fa';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { FaGoogle, FaSpinner } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+import { GoogleAuthProvider } from 'firebase/auth';
+import Link from 'next/link';
 
 const Register = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	const handleRegister = async () => {
+	const router = useRouter();
+	const provider = new GoogleAuthProvider();
+
+	const handleRegister = async (registrationMethod) => {
 		// TODO: Add Email and password validation logic
+
 		setLoading(true);
-		try {
-			const userCredential = await createUserWithEmailAndPassword(
-				auth,
-				email,
-				password
-			);
-			const user = userCredential.user;
-			console.log('USER:', user);
-			console.log('USER CRED:', userCredential);
-			setEmail('');
-			setPassword('');
-			setLoading(false);
-		} catch (error) {
-			alert(error);
-			setLoading(false);
+		switch (registrationMethod) {
+			case 'email':
+				console.log('Registering with Email...');
+				try {
+					const userCredential = await createUserWithEmailAndPassword(
+						auth,
+						email,
+						password
+					);
+					const user = userCredential.user;
+					console.log('USER:', user);
+					console.log('USER CRED:', userCredential);
+					setEmail('');
+					setPassword('');
+					setLoading(false);
+					router.push('/dashboard');
+				} catch (error) {
+					alert(error);
+					setLoading(false);
+				}
+				break;
+			case 'google':
+				console.log('Registering with Google...');
+				try {
+					const userCredential = await signInWithPopup(auth, provider);
+					const user = userCredential.user;
+					console.log('USER:', user);
+					console.log('USER CRED:', userCredential);
+					setEmail('');
+					setPassword('');
+					setLoading(false);
+					router.push('/dashboard');
+				} catch (error) {
+					alert(error);
+					setLoading(false);
+				}
+				break;
+			default:
+				alert('Registration Error: Registration Method Undefined');
 		}
 	};
 
 	return (
 		<div className="flex flex-col h-fit w-[400px] border border-black/10 rounded-xl shadow-xl p-6 gap-4">
-			<h2 className="text-xl font-semibold">Register</h2>
+			<h2 className="text-xl font-semibold">Create Your Account</h2>
 
 			<label className="input input-bordered flex items-center gap-2">
 				<svg
@@ -74,13 +105,32 @@ const Register = () => {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 			</label>
-			<button onClick={handleRegister} className="btn btn-primary">
+			<button
+				onClick={() => handleRegister('email')}
+				className="btn btn-primary"
+			>
 				{loading ? (
 					<FaSpinner className="animate-spin" />
 				) : (
 					'Register New Account'
 				)}
 			</button>
+
+			<div className="divider">OR</div>
+
+			<button
+				onClick={() => handleRegister('google')}
+				className="btn btn-primary-content"
+			>
+				<FaGoogle />
+				Register With Google
+			</button>
+			<p className="flex w-full text-sm gap-1 justify-center mt-2">
+				Already have an account?{' '}
+				<Link className="font-semibold hover:underline" href="/auth/signin">
+					Sign In Here
+				</Link>
+			</p>
 		</div>
 	);
 };
