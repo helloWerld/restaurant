@@ -1,16 +1,83 @@
-import ServesAlcohol from "../../../public/alcohol-icon.png";
-import Example from "../../../public/coffee-icon.png";
+import Cuisine from "../../../public/basic-filters/cuisine-type.png";
+import AvgRating from "../../../public/basic-filters/average-rating.png";
+import OpenNow from "../../../public/basic-filters/currently-open.png";
+import PriceApprox from "../../../public/basic-filters/price-approximate.png";
+import TypeOfRestaurant from "../../../public/basic-filters/type-of-restaurant.png";
 
 const infoBasicFilters = [
   {
     id: 1,
-    icon: ServesAlcohol,
-    description: "Serves alcohol",
+    icon: Cuisine,
+    description: "Type of cuisine",
+    hasOptions: [
+      "American",
+      "Bakery",
+      "Bar",
+      "Barbecue",
+      "Brazilian",
+      "Breakfast",
+      "Brunch",
+      "Cafe",
+      "Chinese",
+      "Coffee",
+      "Fast food",
+      "French",
+      "Greek",
+      "Hamburger",
+      "Ice-cream",
+      "Indian",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Lebanese",
+      "Meal delivery",
+      "Meal takeaway",
+      "Mediterranean",
+      "Mexican",
+      "Middle-eastern",
+      "Pizza",
+      "Ramen",
+      "Sandwich",
+      "Seafood",
+      "Spanish",
+      "Steak-house",
+      "Sushi",
+      "Thai",
+      "Turkish",
+      "Vegan",
+      "Vegetarian",
+      "Vietnamese",
+    ],
   },
   {
     id: 2,
-    icon: Example,
-    description: "Serves coffee",
+    icon: AvgRating,
+    description: "Average rating",
+  },
+  {
+    id: 3,
+    icon: OpenNow,
+    description: "Open? Closing soon?",
+  },
+  {
+    id: 4,
+    icon: PriceApprox,
+    description: "Approximate price",
+  },
+  {
+    id: 5,
+    icon: TypeOfRestaurant,
+    description: "Restaurant type",
+  },
+];
+
+const basicFilterOptions = [
+  {
+    id: 5,
+    icon: TypeOfRestaurant,
+    description: "Type of restaurant",
+    hasOptions: ["pick up", "delivery", "fast-food", "sit-down"],
   },
 ];
 
