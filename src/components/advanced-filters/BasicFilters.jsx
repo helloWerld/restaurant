@@ -59,25 +59,19 @@ const infoBasicFilters = [
     id: 3,
     icon: OpenNow,
     description: "Open? Closing soon?",
+    hasOptions: ["Open now", "Closing soon", "Closed"],
   },
   {
     id: 4,
     icon: PriceApprox,
     description: "Approximate price",
+    hasOptions: ["Inexpensive", "Average", "Expensive", "Fine dining"],
   },
   {
     id: 5,
     icon: TypeOfRestaurant,
     description: "Restaurant type",
-  },
-];
-
-const basicFilterOptions = [
-  {
-    id: 5,
-    icon: TypeOfRestaurant,
-    description: "Type of restaurant",
-    hasOptions: ["pick up", "delivery", "fast-food", "sit-down"],
+    hasOptions: ["Pick up", "Delivery", "Fast-food", "Sit-down"],
   },
 ];
 
