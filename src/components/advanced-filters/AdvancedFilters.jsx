@@ -104,15 +104,18 @@ const AdvancedFilters = () => {
         </div>
       ))}
       <div className="tooltip" data-tip={filtersWithOptions[0].description}>
-        <details className="dropdown">
-          <summary className="btn btn-circle btn-ghost">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-circle btn-ghost">
             <img
               className="h-6 w-6"
               src={filtersWithOptions[0].icon.src}
               alt={filtersWithOptions[0].description}
             />
-          </summary>
-          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+          >
             {filtersWithOptions[0].hasOptions.map((option, index) => (
               <li key={index}>
                 <a>
@@ -126,7 +129,7 @@ const AdvancedFilters = () => {
               </li>
             ))}
           </ul>
-        </details>
+        </div>
       </div>
     </div>
   );
