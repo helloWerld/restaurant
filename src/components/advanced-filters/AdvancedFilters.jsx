@@ -19,51 +19,61 @@ const infoAdvancedFilters = [
     id: 1,
     icon: servesAlcohol,
     description: "Serves alcohol",
+    propertyField: "servesBeer", // or 'servesCocktails' or 'servesWine'
   },
   {
     id: 2,
     icon: dietaryRestrictions,
     description: "Dietary & allergy restrictions",
+    propertyField: "servesVegetarianFood",
   },
   {
     id: 3,
     icon: evCharge,
     description: "EV charge station",
+    propertyField: "evChargeOptions",
   },
   {
     id: 4,
     icon: outdoorSeating,
     description: "Outdoor seating",
+    propertyField: "hasOutdoorSeating",
   },
   {
     id: 5,
     icon: liveMusic,
     description: "Live music",
+    propertyField: "hasLiveMusic",
   },
   {
     id: 6,
     icon: petFriendly,
     description: "Pet friendly",
+    propertyField: "allowsDogs",
   },
   {
     id: 7,
     icon: familyFriendly,
     description: "Family friendly",
+    propertyField: "isGoodForChildren", // or 'hasMenuForChildren'
   },
   {
     id: 8,
     icon: parking,
     description: "Parking",
+    propertyField: "parkingOptions",
   },
   {
     id: 9,
     icon: coffee,
     description: "Serves coffee",
+    propertyField: "servesCoffee",
   },
   {
     id: 10,
     icon: wifiIcon,
     description: "Wifi access",
+    propertyField: "hasWifi",
   },
 ];
 
@@ -72,6 +82,7 @@ const filtersWithOptions = [
     id: 1,
     icon: payments,
     description: "Payment options",
+    propertyField: "paymentOptions",
     hasOptions: [
       {
         icon: cardPayment,

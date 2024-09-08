@@ -1,9 +1,9 @@
 // Restaurant detailed information
 
-const RestaurantDetails = () => {
+const RestaurantDetails = ({ params }) => {
   return (
     <div>
-      <div></div>
+      <div>Restaurant ID: {params.id}</div>
     </div>
   );
 };

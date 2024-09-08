@@ -27,50 +27,51 @@ const infoBasicFilters = [
     icon: Cuisine,
     description: "Type of cuisine",
     hasOptions: [
-      "American",
-      "Bakery",
-      "Bar",
-      "Barbecue",
-      "Brazilian",
-      "Breakfast",
-      "Brunch",
-      "Cafe",
-      "Chinese",
-      "Coffee",
-      "Fast food",
-      "French",
-      "Greek",
-      "Hamburger",
-      "Ice-cream",
-      "Indian",
-      "Indonesian",
-      "Italian",
-      "Japanese",
-      "Korean",
-      "Lebanese",
-      "Meal delivery",
-      "Meal takeaway",
-      "Mediterranean",
-      "Mexican",
-      "Middle-eastern",
-      "Pizza",
-      "Ramen",
-      "Sandwich",
-      "Seafood",
-      "Spanish",
-      "Steak-house",
-      "Sushi",
-      "Thai",
-      "Turkish",
-      "Vegan",
-      "Vegetarian",
-      "Vietnamese",
+      "American", // american_restaurant
+      "Bakery", // bakery
+      "Bar", // bar
+      "Barbecue", // barbecue_restaurant
+      "Brazilian", // brazilian_restaurant
+      "Breakfast", // breakfast_restaurant
+      "Brunch", // brunch_restaurant
+      "Cafe", // cafe
+      "Chinese", // chinese_restaurant
+      "Coffee", // coffee_shop
+      "Fast food", // fast_food_restaurant
+      "French", // french_restaurant
+      "Greek", // greek_restaurant
+      "Hamburger", // hamburger_restaurant
+      "Ice-cream", // ice_cream_shop
+      "Indian", // indian_restaurant
+      "Indonesian", // indonesian_restaurant
+      "Italian", // italian_restaurant
+      "Japanese", // japanese_restaurant
+      "Korean", // korean_restaurant
+      "Lebanese", // lebanese_restaurant
+      "Meal delivery", // meal_delivery
+      "Meal takeaway", // meal_takeaway
+      "Mediterranean", // mediterranean_restaurant
+      "Mexican", // mexican_restaurant
+      "Middle-eastern", // middle_eastern_restaurant
+      "Pizza", // pizza_restaurant
+      "Ramen", // ramen_restaurant
+      "Sandwich", // sandwich_shop
+      "Seafood", // seafood_restaurant
+      "Spanish", // spanish_restaurant
+      "Steak-house", // steak_house
+      "Sushi", // sushi_restaurant
+      "Thai", // thai_restaurant
+      "Turkish", // turkish_restaurant
+      "Vegan", // vegan_restaurant
+      "Vegetarian", // vegetarian_restaurant
+      "Vietnamese", // vietnamese_restaurant
     ],
   },
   {
     id: 2,
     icon: AvgRating,
     description: "Average rating",
+    propertyField: "rating", // or 'userRatingCount'
     hasOptions: [
       {
         name: "Low",
@@ -113,6 +114,7 @@ const infoBasicFilters = [
     id: 4,
     icon: PriceApprox,
     description: "Approximate price",
+    propertyField: "priceLevel",
     hasOptions: [
       {
         name: "Inexpensive",
@@ -140,10 +142,12 @@ const infoBasicFilters = [
       {
         name: "Pick up",
         icon: Pickup,
+        propertyField: "hasTakeout",
       },
       {
         name: "Delivery",
         icon: Delivery,
+        propertyField: "hasDelivery",
       },
       {
         name: "Fast-food",
@@ -152,6 +156,7 @@ const infoBasicFilters = [
       {
         name: "Sit-down",
         icon: EatIn,
+        propertyField: "hasDineIn",
       },
     ],
   },
