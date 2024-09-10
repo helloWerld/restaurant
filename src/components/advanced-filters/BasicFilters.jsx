@@ -1,3 +1,4 @@
+"use client";
 import Cuisine from "../../../public/basic-filters/cuisine-type.png";
 import AvgRating from "../../../public/basic-filters/average-rating.png";
 import OpenNow from "../../../public/basic-filters/currently-open.png";
@@ -20,7 +21,6 @@ import RatingAvg from "../../../public/basic-filters/basic-options/avg-rating.pn
 import GoodRating from "../../../public/basic-filters/basic-options/good-rating.png";
 import GreatRating from "../../../public/basic-filters/basic-options/great-rating.png";
 
-// Uncomment infoBasicFilters #1 and implement without icons
 const infoBasicFilters = [
   {
     id: 1,
@@ -186,18 +186,34 @@ const BasicFilters = () => {
               {filter.hasOptions.map((option, index) =>
                 option.icon ? (
                   <li key={index}>
-                    <a>
+                    <button
+                      className="btn btn-ghost btn-sm"
+                      name={option.name}
+                      value={option.name}
+                      onClick={(event) =>
+                        console.log(event.currentTarget.value)
+                      }
+                    >
                       <img
                         className="w-6 h-6"
                         src={option.icon.src}
                         alt={option.name}
                       />
                       {option.name}
-                    </a>
+                    </button>
                   </li>
                 ) : (
                   <li key={index}>
-                    <a>{option}</a>
+                    <button
+                      className="btn btn-ghost btn-sm"
+                      name={option}
+                      value={option}
+                      onClick={(event) =>
+                        console.log(event.currentTarget.value)
+                      }
+                    >
+                      {option}
+                    </button>
                   </li>
                 )
               )}

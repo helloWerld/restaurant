@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import dietaryRestrictions from "../../../public/diet-restrictions-icon.png";
 import servesAlcohol from "../../../public/alcohol-icon.png";
@@ -105,7 +106,12 @@ const AdvancedFilters = () => {
     <div className="flex flex-row items-center justify-around px-6">
       {infoAdvancedFilters.map((filter) => (
         <div key={filter.id} className="tooltip" data-tip={filter.description}>
-          <button className="btn btn-circle btn-ghost">
+          <button
+            value={filter.propertyField}
+            name={filter.propertyField}
+            className="btn btn-circle btn-ghost"
+            onClick={(e) => console.log(e.currentTarget.value)}
+          >
             <img
               className="h-6 w-6"
               src={filter.icon.src}
@@ -129,14 +135,19 @@ const AdvancedFilters = () => {
           >
             {filtersWithOptions[0].hasOptions.map((option, index) => (
               <li key={index}>
-                <a>
+                <button
+                  className="btn btn-ghost btn-sm"
+                  value={option.description}
+                  name={option.description}
+                  onClick={(e) => console.log(e.currentTarget.value)}
+                >
                   <img
                     className="h-6 w-6"
                     src={option.icon.src}
                     alt={option.description}
                   />{" "}
                   {option.description}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
