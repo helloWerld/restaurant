@@ -47,8 +47,8 @@
     - Currently Open? Closing Soon?
     - Average Rating
 
-[DANNY] Advanced Filters Component (search filters)
-    - Dietary Restrictions (Allergies)
+[DANNY] Advanced Filters Component (search filters) - My branch: feature/advanced-filters 
+    - Dietary Restrictions (Allergies) [Are we breaking this down into sub-categories? E.g., specific allergies or ingredient restrictions?]
     - Live Music
     - Good for Children (Family / Pet Friendly)
     - Outdoor Seating
@@ -73,7 +73,6 @@
     - Previous Searches
     - 
 
-[ANTHONY] Order Food (Grubhub, DoorDash)
-[ANTHONY] Order Food (Grubhub, DoorDash)
+Order Food (Grubhub, DoorDash)
 
 //FUTURE FEATURES

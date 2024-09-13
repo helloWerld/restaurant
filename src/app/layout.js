@@ -4,11 +4,15 @@ import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AppContextProvider } from '@/context/context-provider';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-	title: 'Restaurant App',
-	description: 'Random food selector',
+  title: {
+    template: "%s | Restaurant Finder",
+    default: "Restaurant Finder | Find somewhere to eat without the hassle",
+  },
+  description:
+    "Find somewhere to eat without the hassle - save searches, review restaurants, and more.",
 };
 
 export default function RootLayout({ children }) {
