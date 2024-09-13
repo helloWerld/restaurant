@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { AppContextProvider } from '@/context/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,13 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} min-h-screen w-full`}>
-				<ContextProvider>
+			<AppContextProvider>
+				<body className={`${inter.className} min-h-screen w-full`}>
 					<Navbar />
 					{children}
 					<Footer />
-				</ContextProvider>
-			</body>
+				</body>
+			</AppContextProvider>
 		</html>
 	);
 }
