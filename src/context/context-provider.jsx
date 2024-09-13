@@ -16,7 +16,7 @@ export const AppContextProvider = ({ children }) => {
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			if (user) {
-				const uid = user.uid;
+				// const uid = user.uid;
 				console.log('Logged in user:', user);
 				setAppData((prev) => ({ ...prev, user: user }));
 			} else {
