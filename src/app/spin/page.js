@@ -1,4 +1,4 @@
-import Roulette from '@/components/spin/Roulette';
+import Roulette from '@/components/wheel/Roulette';
 import React from 'react';
 
 const Spin = () => {

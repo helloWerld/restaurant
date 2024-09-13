@@ -1,5 +1,4 @@
-import Hero from '@/components/homepage/Hero';
-import Roulette from '@/components/spin/Roulette';
+import Hero from "@/components/homepage/Hero";
 
 export default function Home() {
 	return (
