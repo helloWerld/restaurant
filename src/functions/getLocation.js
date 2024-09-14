@@ -20,15 +20,20 @@ export const getLocation = () => {
 							address: addressData?.results[0]?.formatted_address,
 						});
 					} else {
-						throw new Error('Could not resolve mailing address for lat/long');
+						alert('Could not resolve mailing address for lat/long');
+						resolve({
+							latitude: 39.7817,
+							longitude: -89.6501,
+							address: '123 Elm Street, Springfield, IL 62701 United States',
+						});
 					}
 				},
 				(error) => {
 					alert(`ERROR: Could not retrieve location. ${error.message}`);
 					resolve({
-						latitude: null,
-						longitude: null,
-						address: null,
+						latitude: 39.7817,
+						longitude: -89.6501,
+						address: '123 Elm Street, Springfield, IL 62701 United States',
 					});
 				}
 			);

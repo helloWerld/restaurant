@@ -8,6 +8,7 @@ import Confetti from 'react-confetti';
 import { getLocation, placesNearbySearch } from '@/functions';
 import dynamic from 'next/dynamic';
 import Filters from './Filters';
+import { useAppContext } from '@/context/context-provider';
 
 const Wheel = dynamic(
 	() => import('react-custom-roulette').then((mod) => mod.Wheel),
@@ -29,6 +30,7 @@ const Wheel = dynamic(
 // ];
 
 const Roulette = ({ modal }) => {
+	const { appData, setAppData } = useAppContext();
 	const [filters, setFilters] = useState({
 		location: {
 			circle: {
@@ -97,6 +99,7 @@ const Roulette = ({ modal }) => {
 				searchFilters = filters;
 			}
 			const response = await placesNearbySearch(searchFilters);
+			console.log('SEARCH RESULTS:', response);
 			let data = [];
 			response?.places?.forEach((place) =>
 				data.push({
@@ -105,6 +108,7 @@ const Roulette = ({ modal }) => {
 			);
 
 			setRestaurantsList(data);
+			setAppData((prev) => ({ ...prev, spin_results: response.places }));
 
 			audioRef.current.pause();
 			audioRef.current.currentTime = 0;
