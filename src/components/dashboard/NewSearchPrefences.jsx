@@ -1,21 +1,36 @@
 'use client';
 
 import { getLocation } from '@/functions';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaMapPin } from 'react-icons/fa';
+import { useAppContext } from '@/context/context-provider';
 
 const NewSearchPrefences = () => {
+	const { appData, setAppData } = useAppContext();
+	const { latitude, longitude, address } = appData.location;
 	const [location, setLocation] = useState({
 		latitude: null,
 		longitude: null,
+		address: null,
 	});
+
+	useEffect(() => {
+		console.log(latitude);
+		console.log(longitude);
+		console.log(address);
+		if (latitude != null || longitude != null || address != null) {
+			setLocation(appData?.location);
+		}
+	}, []);
 
 	return (
 		<div className="flex flex-col w-full border bg-base-200 min-h-80 rounded-lg mb-8 mt-4 p-6">
 			<h2 className="text-lg font-semibold">+ Add New Search Preference</h2>
 			<div className="divider"></div>
 			<label className="text-sm">
-				{location?.longitude != null
+				{location?.address != null
+					? `Address: ${location?.address}`
+					: location?.longitude != null
 					? `Latitude: ${location?.latitude}, Longitude: ${location?.longitude}`
 					: 'Manually Set Location'}
 			</label>
@@ -35,7 +50,7 @@ const NewSearchPrefences = () => {
 							const newLocation = await getLocation();
 							console.log(newLocation);
 							setLocation(newLocation);
-							//setLocation(newLocation);
+							setAppData((prev) => ({ ...prev, newLocation }));
 						}}
 						className="btn btn-primary w-full flex-nowrap whitespace-nowrap"
 					>

@@ -14,9 +14,9 @@ const History = () => {
 			</div>
 			<div className="divider"></div>
 			<div className="flex flex-col gap-4">
-				{restaurantSearchHistory.map((historyEvent) => (
+				{restaurantSearchHistory.map((historyEvent, index) => (
 					<div
-						key={historyEvent.name}
+						key={index}
 						className="group collapse bg-base-300 hover:bg-primary tracking-wide hover:shadow-lg transition duration-300"
 					>
 						<input type="checkbox" />

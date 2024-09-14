@@ -21,9 +21,9 @@ const Preferences = () => {
 			</h1>
 			{showNewSearchPreference && <NewSearchPrefences />}
 			<div className="w-full xl:w-1/2 flex flex-col gap-6 my-8">
-				{preferences.map((preference) => (
+				{preferences.map((preference, index) => (
 					<div
-						key={preference.name}
+						key={index}
 						className="group collapse bg-base-300 hover:bg-primary tracking-wide hover:shadow-lg transition duration-300"
 					>
 						<input type="checkbox" />

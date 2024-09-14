@@ -6,6 +6,13 @@ import { auth } from '../lib/firebase/firebase.config';
 
 const defaultValue = {
 	user: null,
+	location: {
+		latitude: null, // signed float
+		longitude: null, // signed float
+		address: null, // string
+	},
+	spin_results: [],
+	search_results: [],
 };
 
 const AppContext = createContext();
@@ -20,6 +27,16 @@ export const AppContextProvider = ({ children }) => {
 				console.log('Logged in user:', user);
 				setAppData((prev) => ({ ...prev, user: user }));
 			} else {
+				setAppData({
+					user: null,
+					location: {
+						latitude: null, // signed float
+						longitude: null, // signed float
+						address: null, // string
+					},
+					spin_results: [],
+					search_results: [],
+				});
 				console.log('Logged out!');
 			}
 		});

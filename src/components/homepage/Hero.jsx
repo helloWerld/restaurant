@@ -1,5 +1,6 @@
 import React from 'react';
 import wheel from '@../../../public/roulette_wheel.png';
+import Link from 'next/link';
 
 const Hero = () => {
 	return (
@@ -14,8 +15,12 @@ const Hero = () => {
 					destination.
 				</p>
 				<div className="flex flex-row gap-4">
-					<button className="btn btn-primary">Try it now!</button>
-					<button className="btn btn-primary btn-ghost">Select Filters</button>
+					<Link href="/spin" className="btn btn-primary">
+						Spin The Wheel
+					</Link>
+					<Link href="auth" className="btn btn-primary btn-ghost">
+						Log In / Create Account
+					</Link>
 				</div>
 			</div>
 			<div className="w-full lg:w-1/2">
