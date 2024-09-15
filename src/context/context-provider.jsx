@@ -13,6 +13,7 @@ const defaultValue = {
 	},
 	spin_results: [],
 	search_results: [],
+	reviews: [],
 };
 
 const AppContext = createContext();
@@ -23,7 +24,7 @@ export const AppContextProvider = ({ children }) => {
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			if (user) {
-				// const uid = user.uid;
+				const uid = user.uid;
 				console.log('Logged in user:', user);
 				setAppData((prev) => ({ ...prev, user: user }));
 			} else {
@@ -36,6 +37,7 @@ export const AppContextProvider = ({ children }) => {
 					},
 					spin_results: [],
 					search_results: [],
+					reviews: [],
 				});
 				console.log('Logged out!');
 			}

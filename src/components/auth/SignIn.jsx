@@ -61,6 +61,7 @@ const SignIn = () => {
 				alert('Registration Error: Registration Method Undefined');
 		}
 	};
+
 	return (
 		<div className="flex flex-col h-fit w-[400px] border border-black/10 rounded-xl shadow-xl p-6 gap-4">
 			<h2 className="text-xl font-semibold">Sign In</h2>

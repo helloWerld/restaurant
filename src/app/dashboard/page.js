@@ -8,7 +8,7 @@ import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { useAppContext } from '@/context/context-provider';
 
 const Dashboard = () => {
-	const { appData } = useAppContext();
+	const { appData, setAppData } = useAppContext();
 	const { user } = appData;
 	const [location, setLocation] = useState({
 		latitude: 39.7817,
