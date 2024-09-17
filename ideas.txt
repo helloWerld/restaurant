@@ -15,7 +15,7 @@
     - Live Music
     - Good for Children (Family / Pet Friendly)
     - Outdoor Seating
-    - Parking Options
+    - Parking Optionsf
     - Payment Options
     - Sort by Meal / Alcohol / Cofee
     - Wifi Available
@@ -75,5 +75,4 @@
 
 [ANTHONY] Order Food (Grubhub, DoorDash)
 
-
-
+//FUTURE FEATURES
