@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Restaurant Finder App
+
+## Overview
+
+The Restaurant Finder App helps users discover places to eat based on their preferences such as cuisine, location, price range, and more. It introduces an element of fun by allowing users to spin a virtual wheel, which randomly selects a restaurant from the filtered options.
+
+## Features
+
+- **Preference-Based Search:** Filter restaurants by cuisine, location, price range, and other preferences.
+- **Random Selection:** A React-powered roulette wheel adds an element of chance by randomly choosing a restaurant from the filtered list.
+- **Interactive Map:** Integration with Google Maps API allows users to view the selected restaurant's location on a map.
+- **User-Friendly Interface:** Built with Next.js and styled using Tailwind CSS and DaisyUI for a clean and responsive design.
+- **Firebase Integration:** Utilizes Firebase for user authentication, data storage, and real-time updates.
+
+## Technologies Used
+
+- **Next.js:** React framework for building server-rendered applications.
+- **Tailwind CSS:** Utility-first CSS framework for styling.
+- **DaisyUI:** Tailwind CSS components for building user interfaces.
+- **React-Roulette Wheel:** A customizable roulette wheel component for React.
+- **Firebase:** Backend services for authentication, database, and hosting.
+- **Google Maps API:** For displaying the location of restaurants on an interactive map.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v14 or higher)
+- Firebase account for backend services
+- Google Maps API key
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/helloWerld/restaurant.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd restaurant
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Set up Firebase:
+   - Create a Firebase project in the [Firebase Console](https://console.firebase.google.com/).
+   - Copy your Firebase config and paste it into a `.env.local` file in the project root.
 
-## Learn More
+5. Set up Google Maps API:
+   - Get a Google Maps API key from the [Google Cloud Console](https://console.cloud.google.com/).
+   - Add your Google Maps API key to the `.env.local` file:
+   ```bash
+   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+7. Open your browser and go to `http://localhost:3000` to view the app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+1. Enter your preferences in the provided fields (cuisine, location, price range, etc.).
+2. Spin the roulette wheel to randomly select a restaurant.
+3. View details about the selected restaurant, including location and contact information.
+4. See the restaurant's location on an interactive Google Map.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
