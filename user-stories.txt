@@ -3,11 +3,11 @@
 1. User visit website and sees homepage containing...
 
   - Hero Section with CTA (Spin The Wheel)
-  - Food
+  - Food Options Nearby
   - Description of how app works
   - Testimonials
 
-2. Option to sign in or spin as a guest (auth)
+2. Options to sign in or spin as a guest (auth)
   - Incentive for creating accounts
     - Save meal options
 
@@ -22,7 +22,6 @@
 7. User can login and visit dashboard with search preferences, history, basic info, reviews
 
 8. User can review a restaurant
-
 
 
 // Screens
