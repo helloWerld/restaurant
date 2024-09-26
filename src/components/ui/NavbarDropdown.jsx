@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useAppContext } from '@/context/context-provider';
 import LogOutButtonForMenu from '../auth/LogOutButtonForMenu';
+import Image from 'next/image';
 
 const NavbarDropdown = () => {
 	const { appData } = useAppContext();
@@ -9,12 +10,15 @@ const NavbarDropdown = () => {
 	return (
 		<details className="dropdown dropdown-end">
 			<summary className="btn btn-outline btn-circle avatar overflow-clip mt-1">
-				<img
+				<Image
 					alt="User Profile Image"
 					src={
 						user?.photoURL ||
 						`https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp`
 					}
+					className="h-fit"
+					width={500}
+					height={500}
 				/>
 			</summary>
 			<ul className="menu dropdown-content bg-base-200 rounded-box z-[1] w-60 shadow-lg mt-4 p-0">

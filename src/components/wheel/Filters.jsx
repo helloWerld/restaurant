@@ -2,8 +2,10 @@ import { cuisineOptions } from '@/data/cuisineOptions';
 import { getLocation } from '@/functions';
 import React, { useState } from 'react';
 import { FaMapPin, FaSlidersH, FaTimes } from 'react-icons/fa';
+import { useAppContext } from '@/context/context-provider';
 
 const Filters = ({ setShowFilters, filters, setFilters }) => {
+	const { appData, setAppData } = useAppContext();
 	return (
 		<div className=" flex flex-col items-center w-full bg-base-200 rounded-3xl h-fit p-4 relative">
 			<button
@@ -36,6 +38,10 @@ const Filters = ({ setShowFilters, filters, setFilters }) => {
 							onClick={async () => {
 								const newLocation = await getLocation();
 								console.log(newLocation);
+								setAppData((prev) => ({
+									...prev,
+									location: newLocation,
+								}));
 								setFilters((prev) => ({
 									...prev,
 									location: {

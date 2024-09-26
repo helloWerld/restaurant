@@ -21,6 +21,7 @@ const SearchResults = async ({ searchParams }) => {
 						</div>
 						<SearchForm />
 					</div>
+
 					<div className="flex flex-row justify-between items-center">
 						<h2 className="text-xl mb-2">
 							<span className="font-semibold">Search Results for</span> "

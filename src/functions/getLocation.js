@@ -22,9 +22,9 @@ export const getLocation = () => {
 					} else {
 						alert('Could not resolve mailing address for lat/long');
 						resolve({
-							latitude: 39.7817,
-							longitude: -89.6501,
-							address: '123 Elm Street, Springfield, IL 62701 United States',
+							latitude: position.coords.latitude,
+							longitude: position.coords.longitude,
+							address: null,
 						});
 					}
 				},

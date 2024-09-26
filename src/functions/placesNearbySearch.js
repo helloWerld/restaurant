@@ -11,7 +11,7 @@ export const placesNearbySearch = async (filters) => {
 		body: JSON.stringify({
 			includedTypes:
 				filters.cuisine.length > 0 ? filters.cuisine : ['restaurant'],
-			maxResultCount: 10,
+			maxResultCount: 12,
 			locationRestriction: filters.location,
 		}),
 	};

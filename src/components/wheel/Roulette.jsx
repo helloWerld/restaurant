@@ -73,8 +73,12 @@ const Roulette = ({ modal }) => {
 	}, []);
 
 	const handleSpinClick = async () => {
-		setPrizeNumber(null);
 		console.log('spin');
+
+		// Resets winning number to null
+		setPrizeNumber(null);
+
+		// Check for user's location
 		if (!mustSpin) {
 			let searchFilters;
 			if (
@@ -87,10 +91,10 @@ const Roulette = ({ modal }) => {
 					...filters,
 					location: {
 						circle: {
-							...filters.location.circle,
+							...filters?.location?.circle,
 							center: {
-								latitude: newLocation.latitude,
-								longitude: newLocation.longitude,
+								latitude: newLocation?.latitude,
+								longitude: newLocation?.longitude,
 							},
 						},
 					},
@@ -98,22 +102,26 @@ const Roulette = ({ modal }) => {
 			} else {
 				searchFilters = filters;
 			}
+
 			const response = await placesNearbySearch(searchFilters);
 			console.log('SEARCH RESULTS:', response);
 			let data = [];
 			response?.places?.forEach((place) =>
 				data.push({
-					option: place.displayName.text,
+					option: place?.displayName?.text,
 				})
 			);
+			console.log('DATA', data);
 
 			setRestaurantsList(data);
-			setAppData((prev) => ({ ...prev, spin_results: response.places }));
+			setAppData((prev) => ({ ...prev, spin_results: response?.places }));
 
 			audioRef.current.pause();
 			audioRef.current.currentTime = 0;
+
 			const newPrizeNumber = data ? Math.floor(Math.random() * data.length) : 0;
 			setPrizeNumber(newPrizeNumber);
+
 			setMustSpin(true);
 			audioRef.current.play();
 		}
@@ -183,6 +191,7 @@ const Roulette = ({ modal }) => {
 				{!showFilters && (
 					<div className="whitespace-normal flex items-center justify-center scale-95 lg:scale-125 w-fit drop-shadow-2xl rounded-full bg-primary ">
 						<Wheel
+							className="overflow-clip"
 							spinDuration={0.35}
 							mustStartSpinning={mustSpin}
 							prizeNumber={prizeNumber}
@@ -215,7 +224,7 @@ const Roulette = ({ modal }) => {
 								src: logo.src,
 								style: { rotate: '45deg', margin: '15px' },
 							}}
-							disableInitialAnimation={true}
+							disableInitialAnimation={false}
 						/>
 					</div>
 				)}

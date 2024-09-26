@@ -1,26 +1,34 @@
+'use client';
+
 import React from 'react';
 import restaurantData from '../../data/restaurantdata';
 import RestaurantCard from '../cards/RestaurantCard';
+import { useAppContext } from '@/context/context-provider';
 
 const RestaurantList = () => {
+	const { appData } = useAppContext();
+	const { spin_results } = appData;
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-			{restaurantData.restaurants && restaurantData.restaurants.length > 0 ? (
-				restaurantData.restaurants.map((restaurant) => (
-					<RestaurantCard
-						key={restaurant.id}
-						name={restaurant.name}
-						cuisine={restaurant.cuisine}
-						rating={restaurant.rating}
-						priceRange={restaurant.priceRange}
-						imageUrl={restaurant.imageUrl}
-						website={restaurant.website}
-					/>
-				))
-			) : (
-				<p>No restaurants available</p>
+		<>
+			{spin_results.length > 0 && (
+				<h2 className="text-2xl ms-4 lg:ms-44 me-auto font-medium -mb-4">
+					Nearby Options:
+				</h2>
 			)}
-		</div>
+			<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mx-auto gap-4 mt-0">
+				{spin_results?.map((restaurant) => (
+					<RestaurantCard
+						key={restaurant?.id}
+						name={restaurant?.displayName?.text}
+						cuisine={restaurant?.primaryType?.split('_').join(' ')}
+						rating={restaurant?.rating}
+						priceRange={restaurant.priceLevel}
+						photo={restaurant?.photos[0]?.name}
+						// website={restaurant.option}
+					/>
+				))}
+			</div>
+		</>
 	);
 };
 
