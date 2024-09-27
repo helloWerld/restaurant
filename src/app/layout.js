@@ -1,23 +1,24 @@
+// app/layout.js
 import { Inter } from 'next/font/google';
-import './globals.css';
+import './globals.css'; // Import the global CSS file
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-const inter = Inter({ subsets: ['latin'] });
+<link rel="icon" href="/icon.png" />
 
 export const metadata = {
-	title: 'Restaurant App',
-	description: 'Random food selector',
+  title: 'My App',
+  description: 'My Next.js App',
 };
 
 export default function RootLayout({ children }) {
-	return (
-		<html lang="en">
-			<body className={`${inter.className} min-h-screen w-full`}>
-				<Navbar />
-				{children}
-				<Footer />
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
 }
