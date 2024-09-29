@@ -1,0 +1,63 @@
+/* OrderFood.module.css */
+
+.orderFoodContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.restaurantDetails {
+  margin-bottom: 20px;
+}
+
+.restaurantImage {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.serviceButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.serviceButton {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.serviceButton:hover {
+  background-color: #bbb;
+}
+
+.serviceLogo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.orderButton {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 18px;
+}
+
+.orderButton:hover {
+  background-color: #218838;
+}
