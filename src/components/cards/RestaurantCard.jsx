@@ -6,7 +6,7 @@ import { TbWorldWww } from 'react-icons/tb';
 
 const RestaurantCard = ({ name, cuisine, rating, priceRange, photo }) => {
 	return (
-		<article className="card w-96 rounded-xl border border-base-300 hover:shadow-lg cursor-pointer">
+		<article className="card w-11/12 mx-auto sm:w-96 rounded-xl border border-base-300 hover:shadow-lg cursor-pointer">
 			<figure>
 				<Image
 					src={`https://places.googleapis.com/v1/${photo}/media?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&maxWidthPx=600&maxHeightPx=400`}
@@ -18,8 +18,8 @@ const RestaurantCard = ({ name, cuisine, rating, priceRange, photo }) => {
 			</figure>
 			<div className="card-body bg-base-200 p-4 rounded-b-xl">
 				<h2 className="card-title w-full">{name}</h2>
-				<p className="-mt-2 capitalize">{cuisine}</p>
-				<div className="flex ms-auto gap-2">
+				<p className="-mt-2 capitalize text-sm mb-1">{cuisine}</p>
+				<div className="flex gap-2">
 					<div className=" text-sm font-semibold badge badge-secondary">
 						{rating} Stars
 					</div>

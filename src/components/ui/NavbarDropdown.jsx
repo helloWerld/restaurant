@@ -3,23 +3,34 @@ import React from 'react';
 import { useAppContext } from '@/context/context-provider';
 import LogOutButtonForMenu from '../auth/LogOutButtonForMenu';
 import Image from 'next/image';
+import {
+	FaHamburger,
+	FaSignInAlt,
+	FaSlack,
+	FaSlidersH,
+	FaUserAlt,
+} from 'react-icons/fa';
+import wheel from '../../../public/wheel_icon.png';
+import logo from '../../../public/logo.png';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 
 const NavbarDropdown = () => {
 	const { appData } = useAppContext();
 	const { user } = appData;
 	return (
-		<details className="dropdown dropdown-end">
-			<summary className="btn btn-outline btn-circle avatar overflow-clip mt-1">
-				<Image
-					alt="User Profile Image"
-					src={
-						user?.photoURL ||
-						`https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp`
-					}
-					className="h-fit"
-					width={500}
-					height={500}
-				/>
+		<details id="navbar_menu" className="dropdown dropdown-end -mb-1">
+			<summary className="btn btn-outline btn-circle overflow-clip m-0 p-0">
+				{user?.photoURL ? (
+					<Image
+						alt="User Profile Image"
+						src={user?.photoURL}
+						className=""
+						width={500}
+						height={500}
+					/>
+				) : (
+					<FaHamburger className="text-2xl h-full pb-1" />
+				)}
 			</summary>
 			<ul className="menu dropdown-content bg-base-200 rounded-box z-[1] w-60 shadow-lg mt-4 p-0">
 				<div className="bg-primary flex justify-end w-full p-2 rounded-t-xl">
@@ -47,26 +58,67 @@ const NavbarDropdown = () => {
 					</svg>
 				</div>
 				<div className="my-2 mx-1 flex flex-col gap-2">
-					<li>
-						<Link href="/spin">Spin The Wheel</Link>
+					<li
+						onClick={() =>
+							document.getElementById('navbar_menu').removeAttribute('open')
+						}
+					>
+						<Link href="/spin" className="group flex flex-row relative">
+							<img
+								className="size-8 group-hover:animate-spin border-2 border-primary rounded-full -ml-1"
+								src={wheel.src}
+							/>
+							<img
+								className="absolute size-2 top-2 left-9 rotate-45"
+								src={logo.src}
+							/>
+							Spin The Wheel
+						</Link>
 					</li>
-					<li>
-						<Link href="/search">Search Restaurants</Link>
+					<li
+						onClick={() =>
+							document.getElementById('navbar_menu').removeAttribute('open')
+						}
+					>
+						<Link href="/search">
+							<FaMagnifyingGlass className="text-lg mx-1" />
+							Search Restaurants
+						</Link>
 					</li>
+					<div className="divider m-0 p-0 w-11/12 mx-auto -mt-2"></div>
 					{user?.uid ? (
 						<>
-							<li>
-								<Link href="/dashboard">Dashboard</Link>
+							<li
+								onClick={() =>
+									document.getElementById('navbar_menu').removeAttribute('open')
+								}
+							>
+								<Link href="/dashboard">
+									<FaSlidersH className="text-lg" /> Dashboard
+								</Link>
 							</li>
 							<LogOutButtonForMenu />
 						</>
 					) : (
 						<>
-							<li>
-								<Link href="/auth/register">Create Your Account</Link>
+							<li
+								onClick={() =>
+									document.getElementById('navbar_menu').removeAttribute('open')
+								}
+							>
+								<Link href="/auth/register">
+									<FaUserAlt className="text-lg" /> Create Account
+								</Link>
 							</li>
-							<li>
-								<Link href="/auth/signin">Log In</Link>
+							<li
+								onClick={() =>
+									document.getElementById('navbar_menu').removeAttribute('open')
+								}
+							>
+								<Link href="/auth/signin">
+									<FaSignInAlt className="text-lg" />
+									Log In
+								</Link>
 							</li>
 						</>
 					)}

@@ -4,6 +4,7 @@ import React from 'react';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { auth } from '@/lib/firebase/firebase.config';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 const LogOutButtonForMenu = () => {
 	const router = useRouter();
@@ -17,7 +18,10 @@ const LogOutButtonForMenu = () => {
 	};
 	return (
 		<li>
-			<button onClick={handleLogOut}>Log Out</button>
+			<button onClick={handleLogOut}>
+				<FaSignOutAlt className="text-lg" />
+				Log Out
+			</button>
 		</li>
 	);
 };

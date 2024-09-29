@@ -11,9 +11,7 @@ const RestaurantList = () => {
 	return (
 		<>
 			{spin_results.length > 0 && (
-				<h2 className="text-2xl ms-4 lg:ms-44 me-auto font-medium -mb-4">
-					Nearby Options:
-				</h2>
+				<h2 className="text-xl -mb-4">Nearby Search Results</h2>
 			)}
 			<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mx-auto gap-4 mt-0">
 				{spin_results?.map((restaurant) => (

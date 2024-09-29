@@ -29,7 +29,7 @@ const NavLinks = [
 
 const layout = ({ children }) => {
 	return (
-		<div className="flex flex-col lg:flex-row w-full min-h-screen">
+		<div className="flex flex-col lg:flex-row w-full min-h-screen max-w-screen-2xl mx-auto">
 			<div className="flex flex-row items-center justify-around lg:hidden w-full h-fit bg-base-200 text-base-content">
 				{NavLinks.map((link, index) => (
 					<Link

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-//import { Wheel } from 'react-custom-roulette';
+import { Wheel } from 'react-custom-roulette';
 import logo from '../../../public/logo.png';
 import { FaSlidersH } from 'react-icons/fa';
 import Confetti from 'react-confetti';
@@ -10,12 +10,12 @@ import dynamic from 'next/dynamic';
 import Filters from './Filters';
 import { useAppContext } from '@/context/context-provider';
 
-const Wheel = dynamic(
-	() => import('react-custom-roulette').then((mod) => mod.Wheel),
-	{
-		ssr: false,
-	}
-);
+// const Wheel = dynamic(
+// 	() => import('react-custom-roulette').then((mod) => mod.Wheel),
+// 	{
+// 		ssr: false,
+// 	}
+// );
 
 // const data = [
 // 	{ option: 'Starlight Bistro' },
@@ -30,6 +30,21 @@ const Wheel = dynamic(
 // ];
 
 const Roulette = ({ modal }) => {
+	const prizeNumberRef = useRef(0);
+	const restaurantsListRef = useRef([
+		{ option: 'Starlight Bistro' },
+		{ option: 'Rocky Ridge Pizza' },
+		{ option: 'Sunset Diner' },
+		{ option: 'Blue Lagoon Grill' },
+		{ option: 'Crimson Oak Eatery' },
+		{ option: 'Golden Gate Sushi' },
+		{ option: 'Emerald Bay Tacos' },
+		{ option: 'Ivory Coast Café' },
+		{ option: 'Maple Grove BBQ' },
+		{ option: 'Three Berry Juice Bar' },
+		{ option: 'Happy Cow Creamery' },
+		{ option: 'Tuscon Hills Italian' },
+	]);
 	const { appData, setAppData } = useAppContext();
 	const [filters, setFilters] = useState({
 		location: {
@@ -46,23 +61,11 @@ const Roulette = ({ modal }) => {
 	const [mustSpin, setMustSpin] = useState(false);
 	const [showFilters, setShowFilters] = useState(false);
 	const [showConfetti, setShowConfetti] = useState(false);
-	const [prizeNumber, setPrizeNumber] = useState(0);
 	const [winner, setWinner] = useState(null);
 	const [windowSize, setWindowSize] = useState({
 		innerWidth: 0,
 		innerHeight: 0,
 	});
-	const [restaurantsList, setRestaurantsList] = useState([
-		{ option: 'Starlight Bistro' },
-		{ option: 'Rocky Ridge Pizza' },
-		{ option: 'Sunset Diner' },
-		{ option: 'Blue Lagoon Grill' },
-		{ option: 'Crimson Oak Eatery' },
-		{ option: 'Golden Gate Sushi' },
-		{ option: 'Emerald Bay Tacos' },
-		{ option: 'Ivory Coast Café' },
-		{ option: 'Maple Grove BBQ' },
-	]);
 	const audioRef = useRef();
 
 	useEffect(() => {
@@ -76,7 +79,8 @@ const Roulette = ({ modal }) => {
 		console.log('spin');
 
 		// Resets winning number to null
-		setPrizeNumber(null);
+		prizeNumberRef.current = 0;
+		// setPrizeNumber(null);
 
 		// Check for user's location
 		if (!mustSpin) {
@@ -103,8 +107,11 @@ const Roulette = ({ modal }) => {
 				searchFilters = filters;
 			}
 
+			// Retrieve a list of restaurants from Google Maps API
 			const response = await placesNearbySearch(searchFilters);
 			console.log('SEARCH RESULTS:', response);
+
+			// Create data array to store options for wheel
 			let data = [];
 			response?.places?.forEach((place) =>
 				data.push({
@@ -113,17 +120,26 @@ const Roulette = ({ modal }) => {
 			);
 			console.log('DATA', data);
 
-			setRestaurantsList(data);
+			// Set restaurantsList equal to data array & spin results in context
+			restaurantsListRef.current = data;
+			// setRestaurantsList(data);
 			setAppData((prev) => ({ ...prev, spin_results: response?.places }));
+			console.log('restaurant list:', restaurantsListRef.current);
 
+			// Reset audio if already playing
 			audioRef.current.pause();
 			audioRef.current.currentTime = 0;
 
-			const newPrizeNumber = data ? Math.floor(Math.random() * data.length) : 0;
-			setPrizeNumber(newPrizeNumber);
+			// Randomly select prize number
+			const newPrizeNumber = data
+				? Math.floor(Math.random() * data.length)
+				: -1;
+			// setPrizeNumber(newPrizeNumber);
+			prizeNumberRef.current = newPrizeNumber;
 
-			setMustSpin(true);
+			// Play audio and start spin animation
 			audioRef.current.play();
+			setMustSpin(true);
 		}
 	};
 
@@ -142,7 +158,7 @@ const Roulette = ({ modal }) => {
 					onConfettiComplete={() => setShowConfetti(false)}
 				/>
 			)}
-			<div className="flex flex-col lg:flex-row lg:gap-12 justify-between w-fit lg:w-full lg:max-w-screen-lg bg-base-300 rounded-3xl p-4">
+			<div className="flex flex-col lg:flex-row lg:gap-12 justify-between w-fit lg:w-full lg:max-w-screen-lg 2xl:max-w-screen-xl bg-base-300 rounded-3xl p-4">
 				{!showFilters && (
 					<div className=" flex flex-col justify-center w-full bg-base-200 rounded-3xl p-8">
 						<div>
@@ -189,16 +205,18 @@ const Roulette = ({ modal }) => {
 					</div>
 				)}
 				{!showFilters && (
-					<div className="whitespace-normal flex items-center justify-center scale-95 lg:scale-125 w-fit drop-shadow-2xl rounded-full bg-primary ">
+					<div className="whitespace-normal flex items-center justify-center scale-95 lg:scale-125 w-fit drop-shadow-2xl rounded-full bg-primary">
 						<Wheel
-							className="overflow-clip"
 							spinDuration={0.35}
 							mustStartSpinning={mustSpin}
-							prizeNumber={prizeNumber}
-							data={restaurantsList}
+							prizeNumber={prizeNumberRef.current}
+							data={restaurantsListRef.current}
 							onStopSpinning={() => {
 								setMustSpin(false);
-								setWinner(restaurantsList[prizeNumber].option || 'Error');
+								setWinner(
+									restaurantsListRef.current[prizeNumberRef.current].option ||
+										'Error'
+								);
 								setShowConfetti(true);
 							}}
 							backgroundColors={[
@@ -215,16 +233,12 @@ const Roulette = ({ modal }) => {
 							outerBorderColor={'#291334'}
 							radiusLineWidth={0.5}
 							fontWeight={'normal'}
-							fontSize={
-								restaurantsList
-									? Math.floor(20 - restaurantsList?.length / 1.3)
-									: 0
-							}
+							fontSize={12}
 							pointerProps={{
 								src: logo.src,
 								style: { rotate: '45deg', margin: '15px' },
 							}}
-							disableInitialAnimation={false}
+							disableInitialAnimation={true}
 						/>
 					</div>
 				)}

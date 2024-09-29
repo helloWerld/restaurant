@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { placesTextSearch } from '@/functions';
 import SearchForm from '@/components/ui/SearchForm';
 import Link from 'next/link';
+import food from '../../../public/food.png';
 
 const SearchResults = async ({ searchParams }) => {
 	if (searchParams.query) {
@@ -107,7 +108,7 @@ const SearchResults = async ({ searchParams }) => {
 		}
 	} else {
 		return (
-			<div className="flex flex-col lg:flex-row max-w-screen-2xl pt-6 mx-auto min-h-screen">
+			<div className="flex flex-col max-w-screen-2xl pt-6 mx-auto min-h-screen">
 				<div className="flex flex-col lg:flex-row w-full items-center justify-around h-fit">
 					<div className="flex flex-col">
 						<h2 className="text-2xl mt-6 font-semibold">
@@ -118,6 +119,12 @@ const SearchResults = async ({ searchParams }) => {
 						</p>
 					</div>
 					<SearchForm />
+				</div>
+				<div className="flex items-center justify-center grow">
+					<img
+						src={food.src}
+						className="opacity-20 w-4/5 hover:scale-110 transition duration-1000 hover:drop-shadow-lg hover:opacity-100"
+					/>
 				</div>
 			</div>
 		);
