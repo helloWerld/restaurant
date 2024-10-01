@@ -6,16 +6,8 @@ import logo from '../../../public/logo.png';
 import { FaSlidersH } from 'react-icons/fa';
 import Confetti from 'react-confetti';
 import { getLocation, placesNearbySearch } from '@/functions';
-import dynamic from 'next/dynamic';
 import Filters from './Filters';
 import { useAppContext } from '@/context/context-provider';
-
-// const Wheel = dynamic(
-// 	() => import('react-custom-roulette').then((mod) => mod.Wheel),
-// 	{
-// 		ssr: false,
-// 	}
-// );
 
 // const data = [
 // 	{ option: 'Starlight Bistro' },
@@ -45,7 +37,7 @@ const Roulette = ({ modal }) => {
 		{ option: 'Happy Cow Creamery' },
 		{ option: 'Tuscon Hills Italian' },
 	]);
-	const { appData, setAppData } = useAppContext();
+	const { setAppData } = useAppContext();
 	const [filters, setFilters] = useState({
 		location: {
 			circle: {
@@ -66,7 +58,7 @@ const Roulette = ({ modal }) => {
 		innerWidth: 0,
 		innerHeight: 0,
 	});
-	const audioRef = useRef();
+	// const audioRef = useRef();
 
 	useEffect(() => {
 		setWindowSize({
@@ -111,14 +103,25 @@ const Roulette = ({ modal }) => {
 			const response = await placesNearbySearch(searchFilters);
 			console.log('SEARCH RESULTS:', response);
 
+			const numOfResults = response?.places?.length;
+			console.log('# of Results', numOfResults);
+
 			// Create data array to store options for wheel
 			let data = [];
-			response?.places?.forEach((place) =>
-				data.push({
-					option: place?.displayName?.text,
-				})
-			);
-			console.log('DATA', data);
+			if (numOfResults === 12) {
+				response?.places?.forEach((place) =>
+					data.push({
+						option: place?.displayName?.text,
+					})
+				);
+				console.log('DATA', data);
+			} else {
+				let index = 0;
+				while (data.length < 12) {
+					data.push({ option: response.places[index]?.displayName?.text });
+					index < response.places.length - 1 ? index++ : (index = 0);
+				}
+			}
 
 			// Set restaurantsList equal to data array & spin results in context
 			restaurantsListRef.current = data;
@@ -127,8 +130,8 @@ const Roulette = ({ modal }) => {
 			console.log('restaurant list:', restaurantsListRef.current);
 
 			// Reset audio if already playing
-			audioRef.current.pause();
-			audioRef.current.currentTime = 0;
+			// audioRef.current.pause();
+			// audioRef.current.currentTime = 0;
 
 			// Randomly select prize number
 			const newPrizeNumber = data
@@ -138,16 +141,16 @@ const Roulette = ({ modal }) => {
 			prizeNumberRef.current = newPrizeNumber;
 
 			// Play audio and start spin animation
-			audioRef.current.play();
+			// audioRef.current.play();
 			setMustSpin(true);
 		}
 	};
 
 	return (
 		<>
-			<audio ref={audioRef}>
+			{/* <audio ref={audioRef}>
 				<source src="/winner.mp3" type="audio/mp3" />
-			</audio>
+			</audio> */}
 			{!modal && showConfetti && (
 				<Confetti
 					confettiSource={{ x: 0, y: 0, w: windowSize.innerWidth, h: 0 }}
