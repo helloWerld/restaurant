@@ -1,0 +1,15 @@
+{
+  "name": "Restaurant Finder | Find somewhere to eat without the hassle",
+  "short_name": "Restaurant Finder",
+  "description": "Find somewhere to eat without the hassle - save searches, review restaurants, and more.",
+  "start_url": "/",
+  "background_color": "#faf7f5",
+  "theme_color": ["#65c3c8", "#ef9fbc", "#eeaf3a", "#291334", "#faf7f5"],
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

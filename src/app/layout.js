@@ -7,6 +7,9 @@ import { AppContextProvider } from '@/context/context-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
+	openGraph: {
+		images: '/opengraph-image.png',
+	},
 	title: {
 		template: '%s | Restaurant Finder',
 		default: 'Restaurant Finder | Find somewhere to eat without the hassle',
@@ -19,9 +22,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<AppContextProvider>
-				<body
-					className={`${inter.className} min-h-screen w-full overflow-x-clip`}
-				>
+				<body className={`${inter.className} min-h-screen w-full`}>
 					<Navbar />
 					{children}
 					<Footer />
