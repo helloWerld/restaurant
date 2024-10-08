@@ -6,7 +6,7 @@ export const placesNearbySearch = async (filters) => {
 			'Content-Type': 'application/json',
 			'X-Goog-Api-Key': process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
 			'X-Goog-FieldMask':
-				'places.displayName,places.photos,places.primaryType,places.id,places.priceLevel,places.rating',
+				'places.displayName,places.photos,places.primaryType,places.id,places.priceLevel,places.rating,places.formattedAddress',
 		},
 		body: JSON.stringify({
 			includedTypes:

@@ -14,6 +14,7 @@ const defaultValue = {
 	spin_results: [],
 	search_results: [],
 	reviews: [],
+	winner: {},
 };
 
 const AppContext = createContext();

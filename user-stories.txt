@@ -2,26 +2,26 @@
 
 1. User visit website and sees homepage containing...
 
-  - Hero Section with CTA (Spin The Wheel)
-  - Food Options Nearby
-  - Description of how app works
-  - Testimonials
+  - Hero Section with CTA (Spin The Wheel) 
+>>  - Food Options Nearby
+>>  - Description of how app works
+>>  - Testimonials
 
 2. Options to sign in or spin as a guest (auth)
-  - Incentive for creating accounts
-    - Save meal options
+>>  - Incentive for creating accounts (save old spins)
+>>  - Save meal options (preferences)
 
 3. The user click "Try Now" from homepage and they can spin the wheel
 
 4. With the wheel spin the a list of restaurants
 
-5. After the spin they get redirected to a restaurant details page
+>> 5. After the spin they get redirected to a restaurant details page 
 
-6. On the restaurant details page they can see more info about restaurant and links to order
+>> 6. On the restaurant details page they can see more info about restaurant and links to order
 
-7. User can login and visit dashboard with search preferences, history, basic info, reviews
+>> 7. User can login and visit dashboard with search preferences, history, basic info, reviews
 
-8. User can review a restaurant
+>> 8. User can review a restaurant
 
 
 // Screens

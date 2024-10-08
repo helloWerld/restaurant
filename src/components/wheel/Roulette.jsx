@@ -68,81 +68,85 @@ const Roulette = ({ modal }) => {
 	}, []);
 
 	const handleSpinClick = async () => {
-		console.log('spin');
+		try {
+			console.log('spin');
 
-		// Resets winning number to null
-		prizeNumberRef.current = 0;
-		// setPrizeNumber(null);
+			// Resets winning number to null
+			prizeNumberRef.current = 0;
+			// setPrizeNumber(null);
 
-		// Check for user's location
-		if (!mustSpin) {
-			let searchFilters;
-			if (
-				filters.location.circle.center.latitude === null ||
-				filters.location.circle.center.longitude === null
-			) {
-				const newLocation = await getLocation();
-				console.log(newLocation);
-				searchFilters = {
-					...filters,
-					location: {
-						circle: {
-							...filters?.location?.circle,
-							center: {
-								latitude: newLocation?.latitude,
-								longitude: newLocation?.longitude,
+			// Check for user's location
+			if (!mustSpin) {
+				let searchFilters;
+				if (
+					filters.location.circle.center.latitude === null ||
+					filters.location.circle.center.longitude === null
+				) {
+					const newLocation = await getLocation();
+					console.log(newLocation);
+					searchFilters = {
+						...filters,
+						location: {
+							circle: {
+								...filters?.location?.circle,
+								center: {
+									latitude: newLocation?.latitude,
+									longitude: newLocation?.longitude,
+								},
 							},
 						},
-					},
-				};
-			} else {
-				searchFilters = filters;
-			}
-
-			// Retrieve a list of restaurants from Google Maps API
-			const response = await placesNearbySearch(searchFilters);
-			console.log('SEARCH RESULTS:', response);
-
-			const numOfResults = response?.places?.length;
-			console.log('# of Results', numOfResults);
-
-			// Create data array to store options for wheel
-			let data = [];
-			if (numOfResults === 12) {
-				response?.places?.forEach((place) =>
-					data.push({
-						option: place?.displayName?.text,
-					})
-				);
-				console.log('DATA', data);
-			} else {
-				let index = 0;
-				while (data.length < 12) {
-					data.push({ option: response.places[index]?.displayName?.text });
-					index < response.places.length - 1 ? index++ : (index = 0);
+					};
+				} else {
+					searchFilters = filters;
 				}
+
+				// Randomly select prize number
+				const newPrizeNumber = Math.floor(Math.random() * 11);
+				prizeNumberRef.current = newPrizeNumber;
+
+				// Retrieve a list of restaurants from Google Maps API
+				const response = await placesNearbySearch(searchFilters);
+				console.log('SEARCH RESULTS:', response);
+
+				const numOfResults = response?.places?.length;
+				console.log('# of Results', numOfResults);
+
+				// Create data array to store options for wheel
+				let data = [];
+				if (numOfResults === 12) {
+					response?.places?.forEach((place) =>
+						data.push({
+							option: place?.displayName?.text,
+						})
+					);
+					console.log('DATA', data);
+				} else {
+					let index = 0;
+					while (data.length < 12) {
+						data.push({ option: response?.places[index]?.displayName?.text });
+						index < response.places.length - 1 ? index++ : (index = 0);
+					}
+				}
+
+				// Set restaurantsList equal to data array & spin results in context
+				restaurantsListRef.current = data;
+				setAppData((prev) => ({
+					...prev,
+					spin_results: response?.places,
+					winner: response?.places[prizeNumberRef.current],
+				}));
+				console.log('restaurant list:', restaurantsListRef.current);
+
+				// Reset audio if already playing
+				// audioRef.current.pause();
+				// audioRef.current.currentTime = 0;
+
+				// Play audio and start spin animation
+				// audioRef.current.play();
+				setMustSpin(true);
 			}
-
-			// Set restaurantsList equal to data array & spin results in context
-			restaurantsListRef.current = data;
-			// setRestaurantsList(data);
-			setAppData((prev) => ({ ...prev, spin_results: response?.places }));
-			console.log('restaurant list:', restaurantsListRef.current);
-
-			// Reset audio if already playing
-			// audioRef.current.pause();
-			// audioRef.current.currentTime = 0;
-
-			// Randomly select prize number
-			const newPrizeNumber = data
-				? Math.floor(Math.random() * data.length)
-				: -1;
-			// setPrizeNumber(newPrizeNumber);
-			prizeNumberRef.current = newPrizeNumber;
-
-			// Play audio and start spin animation
-			// audioRef.current.play();
-			setMustSpin(true);
+		} catch (error) {
+			alert(error.message);
 		}
 	};
 
@@ -221,6 +225,7 @@ const Roulette = ({ modal }) => {
 										'Error'
 								);
 								setShowConfetti(true);
+								document.getElementById('restaurant_modal').showModal();
 							}}
 							backgroundColors={[
 								'#bde0fe',
